@@ -1,0 +1,32 @@
+{
+  "project": "scraprust",
+  "title": "Scrap & Rust",
+  "version": "1.0.0",
+  "host_game": {
+    "slug": "custom-scrap-mechanic",
+    "name": "Scrap Mechanic",
+    "role": "primary",
+    "engine": "proprietary (Axolot Games custom engine)",
+    "mod_route": "official Lua mod + level files in Documents/My Games/Scrap Mechanic/Mods and .../Levels; launched via Steam AppID 387990",
+    "folder_token": "{game}"
+  },
+  "companion_game": {
+    "slug": "rust",
+    "name": "Rust",
+    "role": "companion",
+    "folder_token": "{game:rust}",
+    "read_from_disk": [
+      "cfg/weapons/*.json (official Facepunch weapon data: name, ammo, damage)",
+      "asset bundles audio (sound bank names, for sound cues referenced by name only)"
+    ],
+    "never_copied": true,
+    "no_client_modding": "Rust has anti-cheat; we never inject into it. We only read its data files while Scrap Mechanic runs."
+  },
+  "together": false,
+  "multiplayer": false,
+  "sheets": ["systems.json", "raids.json", "loot.json", "hooks.json"],
+  "generated_outputs": [
+    "mod/content.lua",
+    "launcher/config.ini"
+  ]
+}

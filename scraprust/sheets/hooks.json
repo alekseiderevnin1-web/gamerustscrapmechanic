@@ -1,0 +1,40 @@
+{
+  "_note": "Hooks into Scrap Mechanic's Lua level API. One row = one generated function in mod/content.lua. api_names must match the game's real Lua API (verified against official Survival API docs; see MODLOG).",
+  "hooks": [
+    {
+      "id": "onlevelstart",
+      "event": "Level.Start",
+      "api_name": "function Level.Start()",
+      "does": "reads env RUST_FOLDER, loads Rust item defs via rustdata system, seeds first loot crates, logs source (live vs fallback)",
+      "status": "built"
+    },
+    {
+      "id": "ontick",
+      "event": "Level.Tick (1 Hz timer via World.CreateTimer)",
+      "api_name": "World.CreateTimer / OnElapsed",
+      "does": "advances daynight clock, schedules crate spawns and raid waves at nightfall",
+      "status": "built"
+    },
+    {
+      "id": "oncrateharvest",
+      "event": "harvest container empty callback",
+      "api_name": "HarvestContainer.OnEmpty",
+      "does": "rolls loot from loot.json weights, resolves display names from live Rust defs, gives SM items + prints Rust-named pickup line",
+      "status": "built"
+    },
+    {
+      "id": "onraidwave",
+      "event": "raid trigger",
+      "api_name": "World.SpawnCreature (survival spawner)",
+      "does": "spawns wave enemies from raids.json rows, sets hp/damage, registers drop group on kill",
+      "status": "built"
+    },
+    {
+      "id": "onblockdecay",
+      "event": "decay tick (per minute)",
+      "api_name": "World.GetBlocksNearby + block integrity",
+      "does": "applies decay_rate_per_min to player blocks outside grace radius; removes broken blocks",
+      "status": "built"
+    }
+  ]
+}

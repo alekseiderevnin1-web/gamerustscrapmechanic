@@ -1,0 +1,57 @@
+{
+  "_note": "Every row generates one system struct in mod/content.lua via tools/generate.py. Columns are keys; no cell may stay TODO.",
+  "systems": [
+    {
+      "id": "daynight",
+      "name": "Rust-style day/night cycle",
+      "from_game": "rust",
+      "rule_source": "Rust server defaults: day length 45 min, night 15 min (public convention)",
+      "in_scrap": "drives the raid scheduler; SM world time is mapped onto it",
+      "day_seconds": 2700,
+      "night_seconds": 900,
+      "enabled": true,
+      "status": "built"
+    },
+    {
+      "id": "decay",
+      "name": "Base decay",
+      "from_game": "rust",
+      "rule_source": "Rust tool/cupboard decay concept, re-themed to SM blocks",
+      "in_scrap": "unclaimed player blocks lose integrity over time near the survival area",
+      "decay_rate_per_min": 0.4,
+      "grace_blocks_near_player": 30,
+      "enabled": true,
+      "status": "built"
+    },
+    {
+      "id": "lootcrates",
+      "name": "Loot crates",
+      "from_game": "both",
+      "rule_source": "crate contents table = loot.json rows, each row's rust_item resolved from the player's own Rust cfg at runtime",
+      "in_scrap": "harvest-container style crates placed on a timed spawn schedule",
+      "spawn_interval_s": 240,
+      "max_live": 6,
+      "enabled": true,
+      "status": "built"
+    },
+    {
+      "id": "raids",
+      "name": "Night raids",
+      "from_game": "rust",
+      "rule_source": "raids.json waves; AI uses SM's existing hostile-creature spawner API",
+      "in_scrap": "wave of hostile scrap-bots attacks the base at first nightfall",
+      "enabled": true,
+      "status": "built"
+    },
+    {
+      "id": "rustdata",
+      "name": "Live Rust data reader",
+      "from_game": "rust",
+      "rule_source": "reads {RUST_FOLDER}/cfg/weapons/*.json at level start; folder passed by Melty as env RUST_FOLDER",
+      "in_scrap": "weapon names/damage/ammo shown in crate drops and HUD log lines come from the player's real Rust files",
+      "fallback": "if Rust folder missing or unreadable, use bundled definitions in data/fallback_items.json and mark them as fallback in the log",
+      "enabled": true,
+      "status": "built"
+    }
+  ]
+}
