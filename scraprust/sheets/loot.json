@@ -1,0 +1,98 @@
+{
+  "_note": "Loot table. sm_side = what physically appears in Scrap Mechanic (its own blocks/items). rust_side = name/stats pulled live from the player's Rust install (never shipped). tier drives crate rarity.",
+  "rows": [
+    {
+      "id": "rock",
+      "rust_item": "rock",
+      "rust_cfg_hint": "cfg/weapons/rock.json",
+      "display_name_source": "rust cfg title field, fallback 'Rock'",
+      "sm_side": "scrap stone block pickup",
+      "tier": 1,
+      "weight": 30,
+      "stack": 1,
+      "status": "built"
+    },
+    {
+      "id": "hatchet",
+      "rust_item": "hatchet",
+      "rust_cfg_hint": "cfg/weapons/hatchet.json",
+      "display_name_source": "rust cfg title field, fallback 'Hatchet'",
+      "sm_side": "axe tool variant (SM survival tool mesh)",
+      "tier": 1,
+      "weight": 20,
+      "stack": 1,
+      "status": "built"
+    },
+    {
+      "id": "bow",
+      "rust_item": "bow",
+      "rust_cfg_hint": "cfg/weapons/bow.json",
+      "display_name_source": "rust cfg title field, fallback 'Hunting Bow'",
+      "sm_side": "SM launcher contraption gun part ammo pack",
+      "tier": 2,
+      "weight": 15,
+      "stack": 1,
+      "status": "built"
+    },
+    {
+      "id": "spas10",
+      "rust_item": "shotgun.spas10",
+      "rust_cfg_hint": "cfg/weapons/shotgun.spas10.json",
+      "display_name_source": "rust cfg title field, fallback 'Spas-10'",
+      "sm_side": "SM gun barrel part + shotgun shell ammo crates",
+      "tier": 3,
+      "weight": 8,
+      "stack": 1,
+      "status": "built"
+    },
+    {
+      "id": "ak47",
+      "rust_item": "rifle.ak",
+      "rust_cfg_hint": "cfg/weapons/rifle.ak.json",
+      "display_name_source": "rust cfg title field, fallback 'Assault Rifle'",
+      "sm_side": "SM gun barrel part (elite) + rifle ammo crates",
+      "tier": 3,
+      "weight": 5,
+      "stack": 1,
+      "status": "built"
+    },
+    {
+      "id": "meds",
+      "rust_item": "medicalgland",
+      "rust_cfg_hint": "cfg/items/medicalgland.json",
+      "display_name_source": "rust cfg title field, fallback 'Medical Supplies'",
+      "sm_side": "SM healing item (survival medkit block)",
+      "tier": 2,
+      "weight": 12,
+      "stack": 3,
+      "status": "built"
+    },
+    {
+      "id": "metal",
+      "rust_item": "metal.fragments",
+      "rust_cfg_hint": "cfg/items/metal.fragments.json",
+      "display_name_source": "rust cfg title field, fallback 'Metal Fragments'",
+      "sm_side": "SM scrap material (axle bolts / small objects)",
+      "tier": 1,
+      "weight": 25,
+      "stack": 100,
+      "status": "built"
+    },
+    {
+      "id": "sulfur",
+      "rust_item": "gunpowder",
+      "rust_cfg_hint": "cfg/items/gunpowder.json",
+      "display_name_source": "rust cfg title field, fallback 'Gunpowder'",
+      "sm_side": "SM explosive barrel component",
+      "tier": 2,
+      "weight": 10,
+      "stack": 45,
+      "status": "built"
+    }
+  ],
+  "drop_groups": {
+    "junk": ["rock", "metal"],
+    "components": ["metal", "sulfur", "meds"],
+    "weapons_ammo": ["spas10", "ak47", "sulfur", "meds"]
+  }
+}

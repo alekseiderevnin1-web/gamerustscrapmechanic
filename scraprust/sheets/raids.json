@@ -1,0 +1,50 @@
+{
+  "_note": "Raid waves. rust_weapon_ref must resolve to a loot.json row id or a name found in the player's Rust cfg at runtime (resolved_by hook 'rustdata').",
+  "waves": [
+    {
+      "id": "wave1_scrapbandit",
+      "name": "Scrap Bandits",
+      "trigger": "first nightfall (systems.daynight)",
+      "enemy_type": "survival hostile creature reskin (SM spawner)",
+      "count": 4,
+      "approach": "ground, nearest player structure",
+      "weapon_theme": "rock",
+      "rust_weapon_ref": "loot.rock",
+      "hp": 60,
+      "damage": 8,
+      "drop_group": "junk",
+      "enabled": true,
+      "status": "built"
+    },
+    {
+      "id": "wave2_junkers",
+      "name": "Junkers",
+      "trigger": "second nightfall",
+      "enemy_type": "survival hostile creature (SM spawner)",
+      "count": 6,
+      "approach": "ground, flanks",
+      "weapon_theme": "shotgun",
+      "rust_weapon_ref": "loot.spas10",
+      "hp": 90,
+      "damage": 14,
+      "drop_group": "components",
+      "enabled": true,
+      "status": "built"
+    },
+    {
+      "id": "wave3_heavyraid",
+      "name": "Heavy Raid",
+      "trigger": "third nightfall onward, every other night",
+      "enemy_type": "survival hostile creature (SM spawner), elite flag",
+      "count": 8,
+      "approach": "ground + one contraption bot on a bearing chassis",
+      "weapon_theme": "rifle",
+      "rust_weapon_ref": "loot.ak47",
+      "hp": 120,
+      "damage": 20,
+      "drop_group": "weapons_ammo",
+      "enabled": true,
+      "status": "built"
+    }
+  ]
+}
